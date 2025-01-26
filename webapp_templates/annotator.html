@@ -1,0 +1,19 @@
+<div class="row">
+    <h1><div hx-get="/annotation_index" hx-trigger="load"></div></h1>
+    <div class="col-10"">
+        <img id="annotationImage" class="img-responsive border border-primary bg-primary" src="/image" style="max-width: 90%" onclick="imageClickListener(event)">
+    </div>
+    <div class="col">
+        <h2>Annotations</h2>
+        <div id="annotations" class="container" hx-get="/annotations" hx-trigger="load"> 
+        </div>
+        <input type="button" class="btn-primary" value="Clear Annotations" onclick="clearAnnotations(event)">
+    </div>
+</div>
+<div class="row">
+    <input type="button" value="Previous" hx-get="/prev" hx-target="#annotator">
+    <input type="button" value="Next" hx-get="/next" hx-target="#annotator">
+</div>
+<div class="row">
+    <div class="overflow-auto" style="max-height: 200px;" hx-get="/image_list" hx-trigger="load"></div>
+</div>

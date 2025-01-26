@@ -1,0 +1,10 @@
+<div id="annotation_{annotation_index}" class="container">
+    <div class="row">
+        {annotation_coordinates}
+    <div class="row">
+        <div class="container">
+            <input type="number" id="annotation_{annotation_index}_class" max=20 min=1 value="{annotation_value}">
+            <input type="button" id="annotation_{annotation_index}_delete" hx-post="/delete/annotation_{annotation_index}" value="X">
+        </div>
+    <div">
+</div>
