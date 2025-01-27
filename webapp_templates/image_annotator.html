@@ -25,6 +25,7 @@
 </body>
 <script>
     let lastClick = null;
+    let selectedClass = 0;
 
     function clearAnnotations(event) {
         const containerDiv = document.getElementById(`annotations`);
@@ -33,6 +34,10 @@
         }
         fetch('/clearannotations', {}).catch(error => {
             console.log('There was a problem with the clear annotations request:', error.message)});
+    }
+
+    function setClass(classValue) {
+        selectedClass = classValue
     }
 
     function sendAnnotations() {
@@ -77,7 +82,7 @@
             newCoordinates.textContent = `{"p0": [${lastClick[0]}, ${lastClick[1]}], "p1": [${image_x}, ${image_y}]}`;
             const valueField = document.createElement('input');
             valueField.type = 'number';
-            valueField.value = 0;
+            valueField.value = selectedClass;
             valueField.max = 20;
             valueField.min = 1;
             const deleteButton = document.createElement('button');

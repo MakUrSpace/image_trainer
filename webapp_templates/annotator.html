@@ -1,13 +1,33 @@
 <div class="row">
     <h1><div hx-get="/annotation_index" hx-trigger="load"></div></h1>
-    <div class="col-10"">
+    <div class="col-8"">
         <img id="annotationImage" class="img-responsive border border-primary bg-primary" src="/image" style="max-width: 90%" onclick="imageClickListener(event)">
     </div>
-    <div class="col">
-        <h2>Annotations</h2>
-        <div id="annotations" class="container" hx-get="/annotations" hx-trigger="load"> 
+    <div class="col-2">
+        <div class="container" style=">
+            <div class="row">
+                <h2>Classes</h2>
+                <form id="radio-form">
+                    <label>
+                        <input type="radio" name="option" value="0" onclick="setClass(0)">
+                        0 - Miscellaneous Vehicle
+                    </label><br>
+                    <label>
+                        <input type="radio" name="option" value="1" onclick="setClass(1)">
+                        1 - Cybertruck
+                    </label><br>
+                    <label>
+                        <input type="radio" name="option" value="2" onclick="setClass(2)">
+                        2 - Carrier
+                    </label>
+                </form>
+            </div>
+            <div class="row">
+                <h2>Annotations</h2>
+                <div id="annotations" class="container" hx-get="/annotations" hx-trigger="load"></div> 
+                <input type="button" class="btn-primary" value="Clear Annotations" onclick="clearAnnotations(event)">
+            </div>
         </div>
-        <input type="button" class="btn-primary" value="Clear Annotations" onclick="clearAnnotations(event)">
     </div>
 </div>
 <div class="row">
